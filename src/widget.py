@@ -21,3 +21,10 @@ def get_mask_account(get_card: str) -> str:
         return f"{byk} {num[:4]} {num[5:7]}{2 * "*"} {4 * "*"} {num[-4:]}"
     else:
         return f"Неправильный ввод"
+
+def get_date(date_str: str) -> str:
+    """функция возврата времени"""
+    date_part = date_str.split("T")[0]
+    year, month, day = date_part.split("-")
+    return f"{day}.{month}.{year}"
+
