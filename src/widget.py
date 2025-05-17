@@ -1,27 +1,17 @@
-def mask_account_card(mask_card: str) -> str:
-    """функция проверки банковского счета и карты"""
-    global byk
-    global num
-    for card in mask_card:
-        if card.isdigit():
-            num += card
-        else:
-            byk += card
-    return f"{byk} {num}"
+from src.masks import mask_account_number
+from src.masks import mask_card_number
 
 
-byk = ""
-num = ""
-
-
-def get_mask_account(get_card: str) -> str:
-    """функция маскировки номера банковского счета и банковской карты"""
-    if len(num) == 20:
-        return f"{byk} {2 * '*'}{num[-4:]}"
-    elif len(num) == 16:
-        return f"{byk} {num[:4]} {num[5:7]}{2 * "*"} {4 * "*"} {num[-4:]}"
+def process_payment_info(payment_info: str) -> str:
+    """Обрабатывает строку с данными карты/счёта."""
+    parts = payment_info.split()
+    number = parts[-1]
+    if "Счет" in parts:
+        masked_number = mask_account_number(number)
     else:
-        return f"Неправильный ввод"
+        masked_number = mask_card_number(number)
+    result = " ".join(parts[:-1] + [masked_number])
+    return result
 
 
 def get_date(date_str: str) -> str:
