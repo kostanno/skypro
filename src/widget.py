@@ -1,15 +1,15 @@
-from src.masks import mask_account_number
-from src.masks import mask_card_number
+from src.masks import get_mask_account
+from src.masks import get_mask_card_number
 
 
-def process_payment_info(payment_info: str) -> str:
+def mask_account_card(payment_info: str) -> str:
     """Обрабатывает строку с данными карты/счёта."""
     parts = payment_info.split()
     number = parts[-1]
     if "Счет" in parts:
-        masked_number = mask_account_number(number)
+        masked_number = get_mask_account(number)
     else:
-        masked_number = mask_card_number(number)
+        masked_number = get_mask_card_number(number)
     result = " ".join(parts[:-1] + [masked_number])
     return result
 
