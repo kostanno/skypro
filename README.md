@@ -5,7 +5,7 @@
 
 1. Клонируйте репозиторий:
 ```
-https://github.com/kostanno/skypro.git
+git clone https://github.com/kostanno/skypro.git
 ```
 2. Установите зависимости:
 ```
