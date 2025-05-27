@@ -23,5 +23,3 @@ def get_date(date_str: str) -> str:
         year, month, day = date_part.split("-")
         return f"{day}.{month}.{year}"
     return "Неверный ввод"
-
-print(get_date("2024-03-11T02:26:18.671407"))
