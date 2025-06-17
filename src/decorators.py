@@ -60,4 +60,3 @@ def log(filename: Optional[str] = None) -> Callable:
 
         return wrapper
     return decorator
-
