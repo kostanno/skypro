@@ -8,6 +8,9 @@ authors = [
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "requests (>=2.32.4,<3.0.0)",
+    "python-dotenv (>=1.1.0,<2.0.0)",
+    "python-mock (>=0.0.3,<0.0.4)"
 ]
 
 [build-system]
@@ -17,6 +20,10 @@ build-backend = "poetry.core.masonry.api"
 [tool.poetry.group.lint.dependencies]
 flake8 = "^7.2.0"
 mypy = "^1.15.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.4.1"
+
 [tool.mypy]
 disallow_untyped_defs = true
 warn_return_any = true
