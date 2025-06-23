@@ -30,10 +30,7 @@ def log(filename: Optional[str] = None) -> Callable:
                 result = func(*args, **kwargs)
                 duration = time.time() - start_time
                 timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                success_msg = (
-                    f"[{timestamp}] {func.__name__} finished in {duration:.2f}s. "
-                    f"Result: {result}\n"
-                )
+                success_msg = f"[{timestamp}] {func.__name__} finished in {duration:.2f}s. " f"Result: {result}\n"
 
                 if filename:
                     with open(filename, "a", encoding="utf-8") as f:
@@ -45,10 +42,7 @@ def log(filename: Optional[str] = None) -> Callable:
 
             except Exception as e:
                 timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                error_msg = (
-                    f"[{timestamp}] {func.__name__} failed with {type(e).__name__}: "
-                    f"{str(e)}. {params}\n"
-                )
+                error_msg = f"[{timestamp}] {func.__name__} failed with {type(e).__name__}: " f"{str(e)}. {params}\n"
 
                 if filename:
                     with open(filename, "a", encoding="utf-8") as f:
@@ -59,4 +53,5 @@ def log(filename: Optional[str] = None) -> Callable:
                 raise
 
         return wrapper
+
     return decorator
