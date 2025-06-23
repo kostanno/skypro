@@ -24,5 +24,3 @@ def load_trans(file_way):
     except FileNotFoundError:
         logger.error(f"Произошла ошибка")
         return []
-
-print(load_trans("../data/operatns.json"))
