@@ -35,4 +35,4 @@ def transaction(trans: dict) -> float:
             rate = data["rates"]["RUB"]
             return amount * rate
         else:
-            raise ValueError(f"Неподдерживаемая валюта")
+            raise ValueError(f"{"Неподдерживаемая валюта"}")
