@@ -1,7 +1,6 @@
-import csv
 from unittest.mock import mock_open, patch, MagicMock
 import pytest
-from src.csv_pandas import way_csv,way_excel
+from src.csv_pandas import way_csv, way_excel
 
 
 def test_way_csv_file_not_found():
@@ -12,16 +11,15 @@ def test_way_csv_file_not_found():
 
 
 def test_way_csv_empty_file():
-    """Тест с пустым CSV (мок пустого файла)."""
-    m = mock_open(read_data="name,age,city\n")  # Только заголовок
+    """Тест с пустым CSV."""
+    m = mock_open(read_data="name,age,city\n")
     with patch("builtins.open", m):
         way_csv("empty.csv")
 
 
 def test_way_excel_empty_file():
-    """Тест с пустым Excel-файлом (мок пустого DataFrame)."""
+    """Тест с пустым файлом."""
     mock_empty_data = MagicMock()
-    mock_empty_data.empty = True  # Эмулируем пустой DataFrame
-
+    mock_empty_data.empty = True
     with patch("pandas.read_excel", return_value=mock_empty_data):
-        way_excel("empty.xlsx")  # Проверяем, что функция не падает на пустом файле
+        way_excel("empty.xlsx")
