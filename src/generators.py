@@ -11,7 +11,7 @@ def filter_by_currency(transactions: list[dict], currency: str) -> iter:
 def transaction_descriptions(transactions: list[dict]) -> iter:
     """Генератор, который возвращает описание каждой транзакции по очереди"""
     for transaction in transactions:
-        yield transaction.get('description')
+        yield transaction.get("description")
 
 
 def card_number_generator(start: int, stop: int) -> iter:

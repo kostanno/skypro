@@ -7,4 +7,4 @@ def filter_by_state(dicta, state="EXECUTED"):
 
 
 def sort_by_date(dicta, sta=True):
-    return sorted(dicta, key=lambda item: item['date'], reverse=True)
+    return sorted(dicta, key=lambda item: item["date"], reverse=True)
